@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You - NovaMinds</title>
+  <link rel="icon" href="images/logo.png" />
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      /* Consistent background from other pages */
+      background-color: #020617; /* slate-950 */
+      background-image: radial-gradient(at 27% 37%, hsla(215, 98%, 41%, 0.1) 0px, transparent 50%), 
+                        radial-gradient(at 97% 21%, hsla(190, 98%, 41%, 0.1) 0px, transparent 50%), 
+                        radial-gradient(at 70% 94%, hsla(240, 98%, 41%, 0.1) 0px, transparent 50%);
+    }
+
+    /* Gradient text for impact */
+    .text-gradient {
+      background: linear-gradient(90deg, #38bdf8, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Custom entrance animation for the card */
+    @keyframes fade-in-scale {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .animate-fade-in-scale {
+      animation: fade-in-scale 0.6s ease-out forwards;
+    }
+
+    /* Progress bar animation */
+    @keyframes progress-bar {
+      from { width: 0%; }
+      to { width: 100%; }
+    }
+    .animate-progress-bar {
+      animation: progress-bar 5s linear forwards;
+    }
+
+  </style>
+</head>
+<body class="text-white flex items-center justify-center min-h-screen px-4">
+
+  <!-- Stylish Card -->
+  <div class="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl shadow-2xl p-8 md:p-12 max-w-lg w-full text-center animate-fade-in-scale">
+    
+    <!-- Animated Checkmark Icon -->
+    <div class="w-20 h-20 mx-auto mb-6 bg-cyan-500/10 rounded-full flex items-center justify-center">
+      <svg class="w-12 h-12 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path class="path" stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    </div>
+
+    <h1 class="text-4xl md:text-5xl font-bold text-gradient mb-4">Thank You!</h1>
+    <p class="text-lg text-slate-300 mb-8">
+      Your message is on its way! Our team will get back to you shortly.
+    </p>
+
+    <!-- Progress Bar for Redirect -->
+    <div class="w-full bg-slate-700 rounded-full h-2 mb-2">
+      <div class="bg-cyan-400 h-2 rounded-full animate-progress-bar"></div>
+    </div>
+    <p class="text-sm text-slate-500 mb-6">Redirecting to homepage...</p>
+
+    <a href="index.html" class="text-cyan-400 hover:text-cyan-300 transition-colors font-medium">
+      Go to Homepage Now
+    </a>
+
+  </div>
+
+  <!-- Confetti Script -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    // Confetti Animation
+    setTimeout(() => {
+      const duration = 3 * 1000;
+      const animationEnd = Date.now() + duration;
+      const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+      function randomInRange(min, max) {
+        return Math.random() * (max - min) + min;
+      }
+
+      const interval = setInterval(function() {
+        const timeLeft = animationEnd - Date.now();
+        if (timeLeft <= 0) {
+          return clearInterval(interval);
+        }
+        const particleCount = 50 * (timeLeft / duration);
+        confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+        confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+      }, 250);
+
+    }, 500); // Launch confetti after a short delay
+
+    // Auto Redirect
+    setTimeout(() => {
+      window.location.href = "index.html"; // Change to your actual homepage path if needed
+    }, 5000); // 5 seconds to match the progress bar
+  </script>
+
+</body>
+</html>

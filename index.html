@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NOVAMINDS - Modern Web Agency</title>
+<link rel="icon" href="images/logo.png" />  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+  <!-- AOS Animation Library -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* Custom Styles for Modern Look */
+    :root {
+      --primary-color: #22d3ee; /* cyan-400 */
+      --dark-bg: #0f172a; /* slate-900 */
+      --light-text: #cbd5e1; /* slate-300 */
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--dark-bg);
+      color: var(--light-text);
+    }
+    
+    /* Gradient Text */
+    .text-gradient {
+      background: linear-gradient(90deg, #38bdf8, #6366f1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    /* Nav Link Underline Animation */
+    .nav-link {
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: var(--primary-color);
+      transform-origin: bottom right;
+      transition: transform 0.25s ease-out;
+    }
+    .nav-link:hover::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+
+    /* Seamless Project Slider Animation */
+    .scrolling-wrapper {
+      display: flex;
+      flex-wrap: nowrap;
+      width: fit-content; /* Important for animation width */
+    }
+    .scrolling-projects {
+      display: flex;
+      animation: scroll-left 40s linear infinite;
+    }
+    .slider-container:hover .scrolling-projects {
+      animation-play-state: paused;
+    }
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); } /* Animate to half the width for seamless loop */
+    }
+    
+    /* Radial Gradient for Hero */
+    .hero-bg {
+        background-color: #020617; /* slate-950 */
+        background-image: radial-gradient(at 27% 37%, hsla(215, 98%, 41%, 0.1) 0px, transparent 50%), 
+                          radial-gradient(at 97% 21%, hsla(190, 98%, 41%, 0.1) 0px, transparent 50%), 
+                          radial-gradient(at 70% 94%, hsla(240, 98%, 41%, 0.1) 0px, transparent 50%);
+    }
+     /* --- Vertical Timeline --- */
+    .timeline-container::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background-color: #1e293b; /* slate-800 */
+      border-radius: 2px;
+    }
+
+    .timeline-item {
+      position: relative;
+    }
+
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 1.25rem; /* Corresponds to py-5 on the card */
+      transform: translateX(-50%);
+      width: 1.25rem;
+      height: 1.25rem;
+      border-radius: 9999px;
+      background-color: #0f172a; /* slate-900 */
+      border: 4px solid var(--primary-color);
+      z-index: 10;
+      transition: transform 0.3s ease;
+    }
+    .timeline-item:hover::after {
+        transform: translateX(-50%) scale(1.2);
+    }
+  </style>
+</head>
+<body class="antialiased">
+
+  <!-- Navbar -->
+ <!-- Navbar -->
+  <nav class="relative flex justify-between items-center p-5 px-6 md:px-10 sticky top-0 z-50 bg-slate-900/80 backdrop-blur-lg border-b border-slate-800">
+    <a href="#" class="flex items-center gap-3">
+      <img src="images/logo.png" alt="Logo" class="h-10 w-10" />
+      <h1 class="text-2xl font-bold text-white">NOVAMINDS</h1>
+    </a>
+    <button class="md:hidden text-white focus:outline-none" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+    <ul class="hidden md:flex items-center gap-8 font-medium text-slate-300">
+      <li><a href="index.html" class="nav-link hover:text-white transition-colors duration-300">Home</a></li>
+      <li><a href="projects.html" class="nav-link hover:text-white transition-colors duration-300">Projects</a></li>
+      <li><a href="about.html" class="nav-link hover:text-white transition-colors duration-300">About</a></li>
+    </ul>
+    <a href="apointment.html" class="hidden md:inline-block px-5 py-2 bg-cyan-400 text-slate-900 font-semibold rounded-lg hover:bg-cyan-300 transition-all duration-300 hover:scale-105">
+      Let’s Build Together
+    </a>
+    <div id="mobile-menu" class="absolute top-full left-0 w-full bg-slate-800 text-center py-4 px-6 hidden md:hidden">
+      <a href="index.html" class="block py-2 text-white">Home</a>
+      <a href="projects.html" class="block py-2 text-white">Projects</a>
+      <a href="about.html" class="block py-2 text-white">About</a>
+      <a href="apointment.html" class="mt-3 inline-block px-5 py-2 bg-cyan-400 text-slate-900 font-semibold rounded-lg hover:bg-cyan-300 transition-all duration-300">
+        Let’s Build Together
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="px-6 md:px-20 py-24 grid md:grid-cols-2 gap-10 items-center hero-bg">
+    <div data-aos="fade-right" class="pl-2 md:pl-10 lg:pl-20 xl:pl-32">
+  <h1 class="text-4xl md:text-5xl font-extrabold mb-6 leading-tight text-white">
+    We Build <span class="text-gradient">Digital Experiences</span> For The Modern World.
+  </h1>
+  <p class="text-lg mb-8 text-slate-400 max-w-lg">
+    From stunning websites to fully functional projects, NOVAMINDS helps your brand launch fast, look brilliant, and perform flawlessly.
+  </p>
+  <a href="projects.html"
+     class="px-8 py-4 bg-cyan-500 text-white font-bold rounded-xl hover:bg-cyan-600 transition-all duration-300 transform hover:scale-105 inline-block shadow-lg shadow-cyan-500/20">
+    Explore Our Work
+  </a>
+</div>
+
+    <div data-aos="fade-left" data-aos-delay="200">
+<lottie-player
+    src="images/banner.json"
+    background="transparent"
+    speed="1"
+    style="width: 100%; max-width: 400px; height: auto;"
+    loop
+    autoplay>
+</lottie-player>
+    </div>
+  </section>
+
+  <!-- Project Slider -->
+  <section id="projects" class="py-20 bg-slate-950">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-white">Our Latest Projects</h2>
+      <p class="text-slate-400 mt-2">A glimpse into our passion for creation.</p>
+    </div>
+    <div class="slider-container w-full overflow-x-hidden relative">
+        <div class="scrolling-wrapper">
+          <div class="scrolling-projects gap-8 px-4">
+            <!-- Project Cards (Duplicated for seamless loop) -->
+            <div class="min-w-[320px] bg-slate-800 border border-slate-700 rounded-xl p-4 group hover:border-cyan-400 transition-all duration-300 transform hover:-translate-y-2">
+              <div class="overflow-hidden rounded-lg mb-4">
+                <img src="images/foundit.png" class="h-48 w-full object-cover rounded-lg group-hover:scale-110 transition-transform duration-500" />
+              </div>
+              <h3 class="font-semibold text-xl text-white">Foundit</h3>
+              <p class="text-sm text-slate-400">A Lost & Found web portal to report, search, and recover lost items using images, categories, and map-based tagging.</p>
+            </div>
+            <div class="min-w-[320px] bg-slate-800 border border-slate-700 rounded-xl p-4 group hover:border-cyan-400 transition-all duration-300 transform hover:-translate-y-2">
+              <div class="overflow-hidden rounded-lg mb-4">
+                <img src="images/tap-type.png" class="h-48 w-full object-cover rounded-lg group-hover:scale-110 transition-transform duration-500" />
+              </div>
+              <h3 class="font-semibold text-xl text-white">TapType</h3>
+              <p class="text-sm text-slate-400">A typing speed and accuracy testing web app with real-time results, charts, and performance feedback.</p>
+            </div>
+            <div class="min-w-[320px] bg-slate-800 border border-slate-700 rounded-xl p-4 group hover:border-cyan-400 transition-all duration-300 transform hover:-translate-y-2">
+              <div class="overflow-hidden rounded-lg mb-4">
+                <img src="images/thougth.png" class="h-48 w-full object-cover rounded-lg group-hover:scale-110 transition-transform duration-500" />
+              </div>
+              <h3 class="font-semibold text-xl text-white">ThoughtsDrop</h3>
+              <p class="text-sm text-slate-400"> An anonymous social platform to share thoughts and replies, with time-limited interactions and a minimalist UI.</p>
+            </div>
+            <div class="min-w-[320px] bg-slate-800 border border-slate-700 rounded-xl p-4 group hover:border-cyan-400 transition-all duration-300 transform hover:-translate-y-2">
+              <div class="overflow-hidden rounded-lg mb-4">
+                <img src="images/ecom.png" class="h-48 w-full object-cover rounded-lg group-hover:scale-110 transition-transform duration-500" />
+              </div>
+              <h3 class="font-semibold text-xl text-white">Asalkar healthy</h3>
+              <p class="text-sm text-slate-400">Asalkar Healthy Hub is an online platform for selling cold-pressed oils with features like product browsing, cart management, order placement, and admin control</p>
+            </div>
+            <!-- DUPLICATES START HERE -->
+            <div class="min-w-[320px] bg-slate-800 border border-slate-700 rounded-xl p-4 group hover:border-cyan-400 transition-all duration-300 transform hover:-translate-y-2">
+              <div class="overflow-hidden rounded-lg mb-4">
+                <img src="images/foundit.png" class="h-48 w-full object-cover rounded-lg group-hover:scale-110 transition-transform duration-500" />
+              </div>
+              <h3 class="font-semibold text-xl text-white">Foundit</h3>
+              <p class="text-sm text-slate-400">A Lost & Found web portal to report, search, and recover lost items using images, categories, and map-based tagging.</p>
+            </div>
+            <div class="min-w-[320px] bg-slate-800 border border-slate-700 rounded-xl p-4 group hover:border-cyan-400 transition-all duration-300 transform hover:-translate-y-2">
+              <div class="overflow-hidden rounded-lg mb-4">
+                <img src="images/tap-type.png" class="h-48 w-full object-cover rounded-lg group-hover:scale-110 transition-transform duration-500" />
+              </div>
+              <h3 class="font-semibold text-xl text-white">TapType</h3>
+              <p class="text-sm text-slate-400">A typing speed and accuracy testing web app with real-time results, charts, and performance feedback.</p>
+            </div>
+            <div class="min-w-[320px] bg-slate-800 border border-slate-700 rounded-xl p-4 group hover:border-cyan-400 transition-all duration-300 transform hover:-translate-y-2">
+              <div class="overflow-hidden rounded-lg mb-4">
+                <img src="images/thougth.png" class="h-48 w-full object-cover rounded-lg group-hover:scale-110 transition-transform duration-500" />
+              </div>
+              <h3 class="font-semibold text-xl text-white">ThoughtsDrop</h3>
+              <p class="text-sm text-slate-400"> An anonymous social platform to share thoughts and replies, with time-limited interactions and a minimalist UI.</p>
+            </div>
+            <div class="min-w-[320px] bg-slate-800 border border-slate-700 rounded-xl p-4 group hover:border-cyan-400 transition-all duration-300 transform hover:-translate-y-2">
+              <div class="overflow-hidden rounded-lg mb-4">
+                <img src="images/ecom.png" class="h-48 w-full object-cover rounded-lg group-hover:scale-110 transition-transform duration-500" />
+              </div>
+              <h3 class="font-semibold text-xl text-white">Asalkar healthy</h3>
+              <p class="text-sm text-slate-400">Asalkar Healthy Hub is an online platform for selling cold-pressed oils with features like product browsing, cart management, order placement, and admin control</p>
+            </div>
+          </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- Why Us -->
+  <section id="about" class="py-20 bg-slate-900 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-white">Why Choose NOVAMINDS?</h2>
+    <div class="grid md:grid-cols-3 gap-8 px-6 md:px-20">
+      <div data-aos="fade-up" class="bg-slate-800 p-8 rounded-xl shadow-lg hover:shadow-cyan-500/10 hover:-translate-y-2 transition-all duration-300">
+          <div class="bg-cyan-400/10 text-cyan-400 rounded-lg w-16 h-16 flex items-center justify-center mb-6 mx-auto">
+             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+          </div>
+        <h3 class="font-bold text-xl mb-2 text-white">Fast Delivery</h3>
+        <p class="text-slate-400">We build and deploy your project in days, not weeks. Efficiency is our promise.</p>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="200" class="bg-slate-800 p-8 rounded-xl shadow-lg hover:shadow-cyan-500/10 hover:-translate-y-2 transition-all duration-300">
+         <div class="bg-cyan-400/10 text-cyan-400 rounded-lg w-16 h-16 flex items-center justify-center mb-6 mx-auto">
+             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v.01" /></svg>
+          </div>
+        <h3 class="font-bold text-xl mb-2 text-white">Affordable Prices</h3>
+        <p class="text-slate-400">Get the best value for your money. Transparent pricing with no hidden costs.</p>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="400" class="bg-slate-800 p-8 rounded-xl shadow-lg hover:shadow-cyan-500/10 hover:-translate-y-2 transition-all duration-300">
+          <div class="bg-cyan-400/10 text-cyan-400 rounded-lg w-16 h-16 flex items-center justify-center mb-6 mx-auto">
+             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+          </div>
+        <h3 class="font-bold text-xl mb-2 text-white">Modern Designs</h3>
+        <p class="text-slate-400">Trendy, responsive, and intuitive UIs that look stunning on all devices.</p>
+      </div>
+    </div>
+  </section>
+
+
+   <!-- Our Process Timeline -->
+  <section class="py-20 px-6 md:px-20 bg-slate-950">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-white" data-aos="fade-up">How We Bring Ideas to Life</h2>
+    <div class="relative timeline-container max-w-4xl mx-auto flex flex-col gap-12">
+      <!-- Step 1: Plan -->
+      <div class="timeline-item flex md:justify-start">
+        <div class="w-full md:w-1/2 md:pr-12" data-aos="fade-right">
+          <div class="bg-slate-800 border border-slate-700 rounded-xl p-6 hover:border-cyan-400 transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/10">
+            <div class="flex items-center gap-4 mb-3">
+              <div class="bg-cyan-500/10 p-3 rounded-lg text-cyan-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l6-3m-6 3V7m6 10V4m0 6l-6-3" /></svg></div>
+              <h3 class="text-xl font-bold text-white">1. Plan & Strategize</h3>
+            </div>
+            <p class="text-slate-400 text-sm">Understand client needs, create feature lists, wireframes, and a clear roadmap for success.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Step 2: Design -->
+      <div class="timeline-item flex md:justify-end">
+        <div class="w-full md:w-1/2 md:pl-12" data-aos="fade-left">
+          <div class="bg-slate-800 border border-slate-700 rounded-xl p-6 hover:border-cyan-400 transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/10">
+            <div class="flex items-center gap-4 mb-3">
+              <div class="bg-cyan-500/10 p-3 rounded-lg text-cyan-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" /></svg></div>
+              <h3 class="text-xl font-bold text-white">2. Design & Prototype</h3>
+            </div>
+            <p class="text-slate-400 text-sm">Craft intuitive UI/UX using Figma or Tailwind-based design systems for a pixel-perfect blueprint.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Step 3: Frontend -->
+       <div class="timeline-item flex md:justify-start">
+        <div class="w-full md:w-1/2 md:pr-12" data-aos="fade-right">
+          <div class="bg-slate-800 border border-slate-700 rounded-xl p-6 hover:border-cyan-400 transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/10">
+            <div class="flex items-center gap-4 mb-3">
+              <div class="bg-cyan-500/10 p-3 rounded-lg text-cyan-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg></div>
+              <h3 class="text-xl font-bold text-white">3. Frontend Development</h3>
+            </div>
+            <p class="text-slate-400 text-sm">Develop responsive, interactive layouts with HTML, Tailwind CSS, and JavaScript or React.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Step 4: Backend -->
+      <div class="timeline-item flex md:justify-end">
+        <div class="w-full md:w-1/2 md:pl-12" data-aos="fade-left">
+          <div class="bg-slate-800 border border-slate-700 rounded-xl p-6 hover:border-cyan-400 transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/10">
+            <div class="flex items-center gap-4 mb-3">
+              <div class="bg-cyan-500/10 p-3 rounded-lg text-cyan-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" /></svg></div>
+              <h3 class="text-xl font-bold text-white">4. Backend Engineering</h3>
+            </div>
+            <p class="text-slate-400 text-sm">Build powerful APIs and databases using Node.js, Express, and MongoDB or Firebase.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Step 5: Test & Deploy -->
+      <div class="timeline-item flex md:justify-start">
+        <div class="w-full md:w-1/2 md:pr-12" data-aos="fade-right">
+          <div class="bg-slate-800 border border-slate-700 rounded-xl p-6 hover:border-cyan-400 transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/10">
+            <div class="flex items-center gap-4 mb-3">
+              <div class="bg-cyan-500/10 p-3 rounded-lg text-cyan-400"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></div>
+              <h3 class="text-xl font-bold text-white">5. Test & Deploy</h3>
+            </div>
+            <p class="text-slate-400 text-sm">Rigorously test across devices, then deploy on platforms like Render, Vercel, or Netlify.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Client Feedbacks -->
+  <section class="py-20 bg-slate-950">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-white">What Our Clients Say</h2>
+    <div class="max-w-4xl mx-auto px-6 grid md:grid-cols-2 gap-8">
+      <div data-aos="zoom-in" class="bg-slate-800/50 p-8 rounded-lg relative">
+        <svg class="absolute top-4 left-4 h-12 w-12 text-slate-700" fill="currentColor" viewBox="0 0 32 32"><path d="M9.33,12.49c-3.2,2.68-4.26,6.25-4.26,9.62c0,0.53,0.43,0.96,0.96,0.96c0.53,0,0.96-0.43,0.96-0.96 c0-3.07,1.02-5.57,3.52-7.59c0.35-0.29,0.4-0.81,0.11-1.16C10.33,12.94,9.81,12.88,9.33,12.49z"></path><path d="M22.67,12.49c-3.2,2.68-4.26,6.25-4.26,9.62c0,0.53,0.43,0.96,0.96,0.96c0.53,0,0.96-0.43,0.96-0.96 c0-3.07,1.02-5.57,3.52-7.59c0.35-0.29,0.4-0.81,0.11-1.16C23.67,12.94,23.15,12.88,22.67,12.49z"></path></svg>
+        <p class="text-lg italic text-slate-300 z-10 relative">"NOVAMINDS gave life to my brand. The delivery was quick and the site looks absolutely awesome!"</p>
+        <div class="mt-6 flex items-center gap-4">
+            <img class="h-12 w-12 rounded-full object-cover" src="https://i.pravatar.cc/150?u=priya" alt="Priya Sharma">
+            <div>
+                <h4 class="font-bold text-white">– Kunal Mehta</h4>
+                <p class="text-sm text-slate-400">Startup Founder</p>
+            </div>
+        </div>
+      </div>
+      <div data-aos="zoom-in" data-aos-delay="200" class="bg-slate-800/50 p-8 rounded-lg relative">
+        <svg class="absolute top-4 left-4 h-12 w-12 text-slate-700" fill="currentColor" viewBox="0 0 32 32"><path d="M9.33,12.49c-3.2,2.68-4.26,6.25-4.26,9.62c0,0.53,0.43,0.96,0.96,0.96c0.53,0,0.96-0.43,0.96-0.96 c0-3.07,1.02-5.57,3.52-7.59c0.35-0.29,0.4-0.81,0.11-1.16C10.33,12.94,9.81,12.88,9.33,12.49z"></path><path d="M22.67,12.49c-3.2,2.68-4.26,6.25-4.26,9.62c0,0.53,0.43,0.96,0.96,0.96c0.53,0,0.96-0.43,0.96-0.96 c0-3.07,1.02-5.57,3.52-7.59c0.35-0.29,0.4-0.81,0.11-1.16C23.67,12.94,23.15,12.88,22.67,12.49z"></path></svg>
+        <p class="text-lg italic text-slate-300 z-10 relative">"Loved the creative UI and attention to detail. Perfect for my professional portfolio!"</p>
+        <div class="mt-6 flex items-center gap-4">
+            <img class="h-12 w-12 rounded-full object-cover" src="https://i.pravatar.cc/150?u=kunal" alt="Kunal Mehta">
+            <div>
+                <h4 class="font-bold text-white">– Priya Sharma</h4>
+                <p class="text-sm text-slate-400">Freelance Designer</p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="py-20 bg-slate-900 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold mb-12 text-white">Our Impact in Numbers</h2>
+    <div class="flex justify-center gap-10 md:gap-20 flex-wrap px-6">
+      <div data-aos="fade-up">
+        <h3 class="text-5xl font-extrabold text-cyan-400 counter" data-count="7">0</h3>
+        <p class="text-lg mt-2 text-slate-400">Projects Delivered</p>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="200">
+        <h3 class="text-5xl font-extrabold text-cyan-400 counter" data-count="5">0</h3>
+        <p class="text-lg mt-2 text-slate-400">Happy Clients</p>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="400">
+        <h3 class="text-5xl font-extrabold text-cyan-400 counter" data-count="98">0</h3>
+        <p class="text-lg mt-2 text-slate-400">Success Rate (%)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact" class="bg-slate-950 border-t border-slate-800">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left p-10">
+      <div>
+        <a href="#" class="flex items-center justify-center md:justify-start gap-3 mb-4">
+          <img src="images/logo.png" alt="Logo" class="h-8 w-8" />
+          <h1 class="text-xl font-bold text-white">NOVAMINDS</h1>
+        </a>
+        <p class="text-slate-400 text-sm">Crafting the future of the web, one project at a time.</p>
+      </div>
+      
+      <div>
+        <h4 class="font-semibold text-white mb-4">Quick Links</h4>
+        <ul class="space-y-2">
+            <li><a href="#home" class="text-slate-400 hover:text-cyan-400 transition">Home</a></li>
+            <li><a href="projects.html" class="text-slate-400 hover:text-cyan-400 transition">Projects</a></li>
+            <li><a href="about.html" class="text-slate-400 hover:text-cyan-400 transition">About Us</a></li>
+        </ul>
+      </div>
+      
+      <div>
+          <h4 class="font-semibold text-white mb-4"><a href="apointment.html">Connect With Us</a></h4>
+         <div class="flex justify-center md:justify-start gap-4 mt-6">
+  <!-- Instagram -->
+  <a href="https://www.instagram.com/novaminds05/" target="_blank" rel="noopener" class="text-slate-400 hover:text-cyan-400 transition" title="Instagram">
+    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zm8.75 3a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/>
+    </svg>
+  </a>
+
+  <!-- LinkedIn -->
+  <a href="https://www.linkedin.com/in/sohamkhot75/" target="_blank" rel="noopener" class="text-slate-400 hover:text-cyan-400 transition" title="LinkedIn">
+    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5.001 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.71h.05c.53-.99 1.82-2.03 3.75-2.03C20 8.68 21 10.21 21 13.27V21h-4v-6.6c0-1.55-.56-2.6-1.97-2.6-1.07 0-1.7.72-1.98 1.42-.1.25-.13.6-.13.95V21h-4z"/>
+    </svg>
+  </a>
+
+  <!-- GitHub -->
+  <a href="https://github.com/Spkhot" target="_blank" rel="noopener" class="text-slate-400 hover:text-cyan-400 transition" title="GitHub">
+    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M12 .5A11.5 11.5 0 0 0 0 12c0 5.08 3.29 9.387 7.857 10.915.575.105.785-.25.785-.555 0-.275-.01-1.005-.015-1.975-3.197.695-3.872-1.54-3.872-1.54-.523-1.312-1.277-1.662-1.277-1.662-1.045-.714.08-.699.08-.699 1.157.081 1.766 1.188 1.766 1.188 1.028 1.762 2.697 1.253 3.353.958.104-.744.402-1.253.73-1.542-2.553-.291-5.238-1.278-5.238-5.689 0-1.257.456-2.287 1.187-3.093-.12-.292-.515-1.47.112-3.064 0 0 .965-.308 3.164 1.18a11.1 11.1 0 0 1 5.764 0c2.198-1.488 3.162-1.18 3.162-1.18.629 1.594.234 2.772.115 3.064.735.806 1.186 1.836 1.186 3.093 0 4.422-2.689 5.395-5.252 5.682.413.355.78 1.054.78 2.125 0 1.533-.014 2.767-.014 3.145 0 .309.207.666.792.553C20.71 21.382 24 17.082 24 12A11.5 11.5 0 0 0 12 .5z"/>
+    </svg>
+  </a>
+</div>
+
+      </div>
+    </div>
+    <div class="bg-slate-900 text-center py-4 border-t border-slate-800">
+      <p class="text-slate-500 text-sm">© 2025 NOVAMINDS. All rights reserved. Designed with ❤️.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize AOS (Animate on Scroll)
+    AOS.init({
+        duration: 800,
+        once: true, // whether animation should happen only once - while scrolling down
+    });
+
+    // --- SMOOTH COUNTER ANIMATION ---
+    document.addEventListener('DOMContentLoaded', () => {
+        const counters = document.querySelectorAll('.counter');
+        const animationDuration = 2000; // 2 seconds
+
+        const animateCounter = (counter) => {
+            const target = +counter.getAttribute('data-count');
+            let startTime = null;
+
+            const step = (timestamp) => {
+                if (!startTime) startTime = timestamp;
+                const progress = Math.min((timestamp - startTime) / animationDuration, 1);
+                counter.innerText = Math.floor(progress * target);
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                } else {
+                    counter.innerText = target; // Ensure it ends on the exact number
+                }
+            };
+            window.requestAnimationFrame(step);
+        };
+        
+        // Intersection Observer to trigger animation only when visible
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    observer.unobserve(entry.target); // Animate only once
+                }
+            });
+        }, { threshold: 0.5 }); // Trigger when 50% of the element is visible
+
+        counters.forEach(counter => {
+            observer.observe(counter);
+        });
+    });
+  </script>
+</body>
+</html>

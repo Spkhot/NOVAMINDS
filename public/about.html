@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Story | NOVAMINDS</title>
+<link rel="icon" href="images/logo.png" />  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- AOS Animation Library -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-color: #22d3ee; /* cyan-400 */
+      --dark-bg: #0f172a; /* slate-900 */
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--dark-bg);
+      color: #cbd5e1; /* slate-300 */
+      overflow-x: hidden;
+    }
+    .text-gradient {
+      background: linear-gradient(90deg, #38bdf8, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+     .text-gradient-alt {
+      background: linear-gradient(90deg, #a5b4fc, #38bdf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+     /* Nav Link Underline Animation */
+    .nav-link {
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: var(--primary-color);
+      transform-origin: bottom right;
+      transition: transform 0.25s ease-out;
+    }
+    .nav-link:hover::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+    .hero-bg {
+        background-color: #020617; /* slate-950 */
+        background-image: radial-gradient(at 27% 37%, hsla(215, 98%, 41%, 0.1) 0px, transparent 50%), 
+                          radial-gradient(at 97% 21%, hsla(190, 98%, 41%, 0.1) 0px, transparent 50%), 
+                          radial-gradient(at 70% 94%, hsla(240, 98%, 41%, 0.1) 0px, transparent 50%);
+    }
+  </style>
+</head>
+<body class="bg-slate-900 antialiased">
+
+  <!-- Navbar -->
+  <!-- Navbar -->
+  <nav class="flex justify-between items-center p-5 px-6 md:px-10 sticky top-0 z-50 bg-slate-900/80 backdrop-blur-lg border-b border-slate-800">
+    <a href="#" class="flex items-center gap-3">
+      <img src="images/logo.png" alt="Logo" class="h-10 w-10" />
+      <h1 class="text-2xl font-bold text-white">NOVAMINDS</h1>
+    </a>
+    <ul class="hidden md:flex items-center gap-8 font-medium text-slate-300">
+      <li><a href="index.html" class="nav-link hover:text-white transition-colors duration-300">Home</a></li>
+      <li><a href="projects.html" class="nav-link hover:text-white transition-colors duration-300">Projects</a></li>
+      <li><a href="about.html" class="nav-link hover:text-white transition-colors duration-300">About</a></li>
+    </ul>
+    <a href="apointment.html" class="hidden md:inline-block px-5 py-2 bg-cyan-400 text-slate-900 font-semibold rounded-lg hover:bg-cyan-300 transition-all duration-300 hover:scale-105">
+      Let’s Build Together
+    </a>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-bg">
+    <div class="max-w-7xl mx-auto px-6 md:px-10 py-24 grid md:grid-cols-2 gap-10 items-center">
+      <div data-aos="fade-right">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-white leading-tight">
+          From <span class="text-gradient">Passion Projects</span> to Digital Powerhouses.
+        </h1>
+        <p class="mt-6 text-lg text-slate-400">
+          We are a collective of developers, designers, and dreamers dedicated to building technology that empowers, inspires, and solves real-world problems. This is our story.
+        </p>
+      </div>
+      <div class="flex justify-center items-center" data-aos="fade-left" data-aos-delay="200">
+        <div class="relative w-64 h-64">
+           <div class="absolute inset-0 bg-cyan-400/30 rounded-full blur-2xl animate-pulse"></div>
+           <img src="images/logo.png" alt="NOVAMINDS Logo" class="relative z-10 w-full h-full object-contain">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impactful Line Section -->
+  <section class="py-12 bg-slate-950">
+      <div class="text-center">
+          <h2 data-aos="zoom-in" class="text-2xl md:text-3xl font-bold text-gradient-alt">We don't just write code. We build futures.</h2>
+      </div>
+  </section>
+
+  <!-- Our Story Section -->
+  <section class="py-20 px-6 md:px-10">
+    <div class="max-w-7xl mx-auto space-y-24">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="w-full" data-aos="fade-right"><div class="bg-slate-800 p-4 rounded-xl border border-slate-700 shadow-xl"><img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" class="rounded-lg object-cover w-full h-full" alt="Team brainstorming"></div></div>
+            <div data-aos="fade-left"><span class="text-cyan-400 font-semibold">01. THE SPARK</span><h3 class="text-3xl font-bold text-white mt-2 mb-4">A Shared Passion Ignites</h3><p class="text-slate-400">NOVAMINDS began not in a boardroom, but in a college dorm room. It was a shared passion between friends for elegant code and intuitive design. We spent countless nights turning complex problems into simple, beautiful web solutions, driven purely by the joy of creation and the desire to learn.</p></div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="md:order-last" data-aos="fade-left"><div class="bg-slate-800 p-4 rounded-xl border border-slate-700 shadow-xl"><img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2070&auto=format&fit=crop" class="rounded-lg object-cover w-full h-full" alt="First client meeting"></div></div>
+            <div data-aos="fade-right"><span class="text-cyan-400 font-semibold">02. THE FOUNDATION</span><h3 class="text-3xl font-bold text-white mt-2 mb-4">Building with Purpose</h3><p class="text-slate-400">What started as a hobby soon attracted attention. Our first real-world projects taught us invaluable lessons about client collaboration, deadlines, and delivering tangible value. We established our core principles: listen intently, build with quality, and always prioritize the user experience. This foundation turned our passion into a profession.</p></div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right"><div class="bg-slate-800 p-4 rounded-xl border border-slate-700 shadow-xl"><img src="images/boys.png" class="rounded-lg object-cover w-full h-full" alt="Team working on future tech"></div></div>
+            <div data-aos="fade-left"><span class="text-cyan-400 font-semibold">03. THE HORIZON</span><h3 class="text-3xl font-bold text-white mt-2 mb-4">Innovating for Tomorrow</h3><p class="text-slate-400">Today, NOVAMINDS is a growing team of dedicated professionals. We are constantly exploring new technologies, refining our processes, and expanding our capabilities. Our mission remains the same: to be a trusted partner for businesses and individuals looking to make a meaningful impact in the digital world. The horizon is bright, and we're just getting started.</p></div>
+        </div>
+    </div>
+  </section>
+
+  <!-- NEW Static Contact Section -->
+  <section class="py-20 px-6 md:px-10 bg-slate-950" id="contact">
+    <div class="max-w-7xl mx-auto text-center mb-12" data-aos="fade-up">
+        <h2 class="text-3xl md:text-4xl font-bold text-white">Let's Build Something <span class="text-gradient">Great Together</span></h2>
+        <p class="mt-4 text-slate-400">Whether you're looking to start a project, join our team, or simply say hello—we're here to listen.</p>
+    </div>
+
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10">
+        <!-- Info Card (Left) -->
+        <div class="bg-slate-800 p-8 rounded-xl border border-slate-700 flex flex-col" data-aos="fade-right">
+  <h3 class="text-2xl font-bold text-white mb-4">Contact Information</h3>
+  <p class="text-slate-400 mb-8">You can reach us through any of the channels below. We look forward to hearing from you.</p>
+  <div class="space-y-4 flex-grow">
+    <a href="mailto:hello@novaminds.in" class="flex items-center gap-3 group/link">
+      <div class="bg-cyan-500/10 p-2 rounded-md text-cyan-400">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      </div>
+      <span class="group-hover/link:text-white transition">hello@novaminds.in</span>
+    </a>
+
+    <a href="mailto:careers@novaminds.in" class="flex items-center gap-3 group/link">
+      <div class="bg-cyan-500/10 p-2 rounded-md text-cyan-400">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4h16v16H4z" />
+        </svg>
+      </div>
+      <span class="group-hover/link:text-white transition">careers@novaminds.in</span>
+    </a>
+
+    <a href="tel:+919876543210" class="flex items-center gap-3 group/link">
+      <div class="bg-cyan-500/10 p-2 rounded-md text-cyan-400">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+        </svg>
+      </div>
+      <span class="group-hover/link:text-white transition">+91 9901341404</span>
+    </a>
+
+    <p class="flex items-center gap-3">
+      <div class="bg-cyan-500/10 p-2 rounded-md text-cyan-400">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+      </div>
+      <span>Pune, Maharashtra, India</span>
+    </p>
+
+    <p class="flex items-center gap-3">
+      <div class="bg-cyan-500/10 p-2 rounded-md text-cyan-400">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z" />
+        </svg>
+      </div>
+      <span class="text-slate-400">Mon - Sat: 10 AM – 7 PM IST</span>
+    </p>
+
+    <p class="flex items-center gap-3">
+      <div class="bg-cyan-500/10 p-2 rounded-md text-cyan-400">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 20h.01M4 4h16v16H4z" />
+        </svg>
+      </div>
+      <span class="text-slate-400">www.novaminds.in</span>
+    </p>
+  </div>
+
+  <div class="flex items-center gap-4 mt-8 pt-4 border-t border-slate-700">
+    <a href="https://www.instagram.com/novaminds05/" class="text-slate-400 hover:text-cyan-400 transition" title="Instagram">
+      <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">...</svg>
+    </a>
+    <a href="https://www.linkedin.com/in/sohamkhot75/" class="text-slate-400 hover:text-cyan-400 transition" title="LinkedIn">
+      <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">...</svg>
+    </a>
+    <a href="https://github.com/Spkhot" class="text-slate-400 hover:text-cyan-400 transition" title="GitHub">
+      <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">...</svg>
+    </a>
+  </div>
+</div>
+
+        <!-- Form (Right) -->
+        <div class="bg-slate-800 p-8 rounded-xl border border-slate-700" data-aos="fade-left">
+  <h3 class="text-2xl font-bold text-white mb-4">Send us a Message</h3>
+  <p class="text-slate-400 mb-8">Fill out the form and our team will get back to you within 24 hours.</p>
+  <form action="https://getform.io/f/agdlwpeb" method="POST" class="space-y-5">
+    <div>
+      <label class="block text-sm font-medium text-slate-400 mb-1">Full Name</label>
+      <input type="text" name="name" placeholder="Your Name" class="w-full bg-slate-700 p-3 rounded-lg border border-slate-600 text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500" required>
+    </div>
+    <div>
+      <label class="block text-sm font-medium text-slate-400 mb-1">Email</label>
+      <input type="email" name="email" placeholder="you@example.com" class="w-full bg-slate-700 p-3 rounded-lg border border-slate-600 text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500" required>
+    </div>
+    <div>
+      <label class="block text-sm font-medium text-slate-400 mb-1">Subject</label>
+      <input type="text" name="subject" placeholder="Project Inquiry / Joining / Question" class="w-full bg-slate-700 p-3 rounded-lg border border-slate-600 text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500" required>
+    </div>
+    <div>
+      <label class="block text-sm font-medium text-slate-400 mb-1">Your Message</label>
+      <textarea name="message" rows="4" class="w-full bg-slate-700 p-3 rounded-lg border border-slate-600 text-white placeholder:text-slate-500 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500" placeholder="Tell us about your idea..." required></textarea>
+    </div>
+    <input type="hidden" name="redirect" value="https://yourdomain.com/thankyou.html" />
+    <button type="submit" class="w-full bg-cyan-500 text-slate-900 font-bold py-3 rounded-lg hover:bg-cyan-400 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-cyan-500/20">Send Message</button>
+  </form>
+</div>
+
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-white text-center p-6 border-t border-slate-800">
+    <p>© 2025 NOVAMINDS. All rights reserved.</p>
+  </footer>
+
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100,
+    });
+  </script>
+</body>
+</html>
