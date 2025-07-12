@@ -145,6 +145,14 @@
         padding-left: 45px; /* Push content away from the line */
         padding-right: 1rem; /* Add some right-side padding */
       }
+      /* Align all timeline items to the right of the line on mobile */
+      .timeline-item > div[data-aos="fade-left"], .timeline-item > div[data-aos="fade-right"] {
+          transform: none; /* Reset AOS transform on mobile if needed */
+          text-align: left;
+      }
+      .timeline-item {
+        justify-content: flex-start;
+      }
     }
 
     /* --- Mobile Menu Animation --- */
@@ -192,11 +200,10 @@
     </div>
   </nav>
 
-
   <!-- Hero Section -->
   <section id="home" class="px-4 sm:px-6 md:px-20 py-20 md:py-24 grid md:grid-cols-2 gap-10 items-center hero-bg text-center md:text-left">
     <div data-aos="fade-right">
-      <h1 class="text-4xl sm:text-5xl font-extrabold mb-6 leading-tight text-white">
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight text-white">
         We Build <span class="text-gradient">Digital Experiences</span> For The Modern World.
       </h1>
       <p class="text-lg mb-8 text-slate-400 max-w-lg mx-auto md:mx-0">
@@ -230,59 +237,59 @@
         <div class="scrolling-wrapper">
           <div class="scrolling-projects gap-8 px-4">
             <!-- Project Cards (Duplicated for seamless loop) -->
-            <div class="min-w-[320px] bg-slate-800 border border-slate-700 rounded-xl p-4 group hover:border-cyan-400 transition-all duration-300 transform hover:-translate-y-2">
+            <div class="min-w-[320px] sm:min-w-[350px] bg-slate-800 border border-slate-700 rounded-xl p-4 group hover:border-cyan-400 transition-all duration-300 transform hover:-translate-y-2">
               <div class="overflow-hidden rounded-lg mb-4">
-                <img src="images/foundit.png" class="h-48 w-full object-cover rounded-lg group-hover:scale-110 transition-transform duration-500" />
+                <img src="images/foundit.png" alt="Foundit Project" class="h-48 w-full object-cover rounded-lg group-hover:scale-110 transition-transform duration-500" />
               </div>
               <h3 class="font-semibold text-xl text-white">Foundit</h3>
               <p class="text-sm text-slate-400">A Lost & Found web portal to report, search, and recover lost items using images, categories, and map-based tagging.</p>
             </div>
-            <div class="min-w-[320px] bg-slate-800 border border-slate-700 rounded-xl p-4 group hover:border-cyan-400 transition-all duration-300 transform hover:-translate-y-2">
+            <div class="min-w-[320px] sm:min-w-[350px] bg-slate-800 border border-slate-700 rounded-xl p-4 group hover:border-cyan-400 transition-all duration-300 transform hover:-translate-y-2">
               <div class="overflow-hidden rounded-lg mb-4">
-                <img src="images/tap-type.png" class="h-48 w-full object-cover rounded-lg group-hover:scale-110 transition-transform duration-500" />
+                <img src="images/tap-type.png" alt="TapType Project" class="h-48 w-full object-cover rounded-lg group-hover:scale-110 transition-transform duration-500" />
               </div>
               <h3 class="font-semibold text-xl text-white">TapType</h3>
               <p class="text-sm text-slate-400">A typing speed and accuracy testing web app with real-time results, charts, and performance feedback.</p>
             </div>
-            <div class="min-w-[320px] bg-slate-800 border border-slate-700 rounded-xl p-4 group hover:border-cyan-400 transition-all duration-300 transform hover:-translate-y-2">
+            <div class="min-w-[320px] sm:min-w-[350px] bg-slate-800 border border-slate-700 rounded-xl p-4 group hover:border-cyan-400 transition-all duration-300 transform hover:-translate-y-2">
               <div class="overflow-hidden rounded-lg mb-4">
-                <img src="images/thougth.png" class="h-48 w-full object-cover rounded-lg group-hover:scale-110 transition-transform duration-500" />
+                <img src="images/thougth.png" alt="ThoughtsDrop Project" class="h-48 w-full object-cover rounded-lg group-hover:scale-110 transition-transform duration-500" />
               </div>
               <h3 class="font-semibold text-xl text-white">ThoughtsDrop</h3>
               <p class="text-sm text-slate-400"> An anonymous social platform to share thoughts and replies, with time-limited interactions and a minimalist UI.</p>
             </div>
-            <div class="min-w-[320px] bg-slate-800 border border-slate-700 rounded-xl p-4 group hover:border-cyan-400 transition-all duration-300 transform hover:-translate-y-2">
+            <div class="min-w-[320px] sm:min-w-[350px] bg-slate-800 border border-slate-700 rounded-xl p-4 group hover:border-cyan-400 transition-all duration-300 transform hover:-translate-y-2">
               <div class="overflow-hidden rounded-lg mb-4">
-                <img src="images/ecom.png" class="h-48 w-full object-cover rounded-lg group-hover:scale-110 transition-transform duration-500" />
+                <img src="images/ecom.png" alt="Asalkar Healthy Project" class="h-48 w-full object-cover rounded-lg group-hover:scale-110 transition-transform duration-500" />
               </div>
               <h3 class="font-semibold text-xl text-white">Asalkar healthy</h3>
               <p class="text-sm text-slate-400">Asalkar Healthy Hub is an online platform for selling cold-pressed oils with features like product browsing, cart management, order placement, and admin control</p>
             </div>
             <!-- DUPLICATES START HERE -->
-            <div class="min-w-[320px] bg-slate-800 border border-slate-700 rounded-xl p-4 group hover:border-cyan-400 transition-all duration-300 transform hover:-translate-y-2">
+            <div class="min-w-[320px] sm:min-w-[350px] bg-slate-800 border border-slate-700 rounded-xl p-4 group hover:border-cyan-400 transition-all duration-300 transform hover:-translate-y-2">
               <div class="overflow-hidden rounded-lg mb-4">
-                <img src="images/foundit.png" class="h-48 w-full object-cover rounded-lg group-hover:scale-110 transition-transform duration-500" />
+                <img src="images/foundit.png" alt="Foundit Project" class="h-48 w-full object-cover rounded-lg group-hover:scale-110 transition-transform duration-500" />
               </div>
               <h3 class="font-semibold text-xl text-white">Foundit</h3>
               <p class="text-sm text-slate-400">A Lost & Found web portal to report, search, and recover lost items using images, categories, and map-based tagging.</p>
             </div>
-            <div class="min-w-[320px] bg-slate-800 border border-slate-700 rounded-xl p-4 group hover:border-cyan-400 transition-all duration-300 transform hover:-translate-y-2">
+            <div class="min-w-[320px] sm:min-w-[350px] bg-slate-800 border border-slate-700 rounded-xl p-4 group hover:border-cyan-400 transition-all duration-300 transform hover:-translate-y-2">
               <div class="overflow-hidden rounded-lg mb-4">
-                <img src="images/tap-type.png" class="h-48 w-full object-cover rounded-lg group-hover:scale-110 transition-transform duration-500" />
+                <img src="images/tap-type.png" alt="TapType Project" class="h-48 w-full object-cover rounded-lg group-hover:scale-110 transition-transform duration-500" />
               </div>
               <h3 class="font-semibold text-xl text-white">TapType</h3>
               <p class="text-sm text-slate-400">A typing speed and accuracy testing web app with real-time results, charts, and performance feedback.</p>
             </div>
-            <div class="min-w-[320px] bg-slate-800 border border-slate-700 rounded-xl p-4 group hover:border-cyan-400 transition-all duration-300 transform hover:-translate-y-2">
+            <div class="min-w-[320px] sm:min-w-[350px] bg-slate-800 border border-slate-700 rounded-xl p-4 group hover:border-cyan-400 transition-all duration-300 transform hover:-translate-y-2">
               <div class="overflow-hidden rounded-lg mb-4">
-                <img src="images/thougth.png" class="h-48 w-full object-cover rounded-lg group-hover:scale-110 transition-transform duration-500" />
+                <img src="images/thougth.png" alt="ThoughtsDrop Project" class="h-48 w-full object-cover rounded-lg group-hover:scale-110 transition-transform duration-500" />
               </div>
               <h3 class="font-semibold text-xl text-white">ThoughtsDrop</h3>
               <p class="text-sm text-slate-400"> An anonymous social platform to share thoughts and replies, with time-limited interactions and a minimalist UI.</p>
             </div>
-            <div class="min-w-[320px] bg-slate-800 border border-slate-700 rounded-xl p-4 group hover:border-cyan-400 transition-all duration-300 transform hover:-translate-y-2">
+            <div class="min-w-[320px] sm:min-w-[350px] bg-slate-800 border border-slate-700 rounded-xl p-4 group hover:border-cyan-400 transition-all duration-300 transform hover:-translate-y-2">
               <div class="overflow-hidden rounded-lg mb-4">
-                <img src="images/ecom.png" class="h-48 w-full object-cover rounded-lg group-hover:scale-110 transition-transform duration-500" />
+                <img src="images/ecom.png" alt="Asalkar Healthy Project" class="h-48 w-full object-cover rounded-lg group-hover:scale-110 transition-transform duration-500" />
               </div>
               <h3 class="font-semibold text-xl text-white">Asalkar healthy</h3>
               <p class="text-sm text-slate-400">Asalkar Healthy Hub is an online platform for selling cold-pressed oils with features like product browsing, cart management, order placement, and admin control</p>
@@ -482,8 +489,9 @@
   <script>
     // Initialize AOS (Animate on Scroll)
     AOS.init({
-        duration: 800,
-        once: true, // whether animation should happen only once - while scrolling down
+      duration: 800,
+      once: true,
+      offset: 100, // start animation a bit sooner
     });
 
     // --- SMOOTH COUNTER ANIMATION ---
@@ -531,19 +539,18 @@
     const menuLinks = document.querySelectorAll('.mobile-menu-link');
 
     const toggleMenu = () => {
-        // Toggle visibility with animation
         const isHidden = mobileMenu.classList.contains('hidden');
 
         if (isHidden) {
             mobileMenu.classList.remove('hidden');
-            setTimeout(() => {
+            setTimeout(() => { // Delay to allow the 'display' change to register before transitioning
                 mobileMenu.classList.remove('opacity-0', '-translate-y-4', 'pointer-events-none');
             }, 10);
         } else {
             mobileMenu.classList.add('opacity-0', '-translate-y-4', 'pointer-events-none');
              setTimeout(() => {
                 mobileMenu.classList.add('hidden');
-            }, 300); // Match transition duration
+            }, 300); // Match transition duration in CSS
         }
         
         // Toggle icons
@@ -568,17 +575,6 @@
                 toggleMenu();
             }
         });
-    });
-   AOS.init({
-      duration: 800,
-      once: true,
-      offset: 100,
-    });
-    const form = document.querySelector("form");
-    form.addEventListener("submit", function () {
-      setTimeout(() => {
-        window.location.href = "https://novaminds.vercel.app/thankyou.html";
-      }, 1000);
     });
   </script>
 </body>
